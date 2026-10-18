@@ -9,7 +9,7 @@ class Auth extends BaseController
     public function index()
     {
         if (session()->get('isLoggedIn')) {
-            return redirect()->to('/'); // Redirect ke halaman profil jika sudah login
+            return redirect()->to('/pages');
         }
         return view('auth/login');
     }
@@ -26,14 +26,18 @@ class Auth extends BaseController
 
         if ($user) {
             if (password_verify($password, $user['password'])) {
+
                 $sessionData = [
                     'user_id'    => $user['id'],
                     'username'   => $user['username'],
                     'email'      => $user['email'],
+                    'role'       => $user['role'],
+                    'foto'       => $user['photo'] ?? '',
                     'isLoggedIn' => true,
                 ];
+
                 $session->set($sessionData);
-                return redirect()->to('/'); // Redirect ke halaman profil setelah login berhasil
+                return redirect()->to('/pages');
             } else {
                 $session->setFlashdata('msg', 'Password salah!');
                 return redirect()->to('/login');

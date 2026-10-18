@@ -17,11 +17,12 @@
 
             <?= $this->include('layout/navbar') ?>
 
-            <main class="flex-1 p-4 sm:p-10">
+            <!-- Main content view -->
+            <main class="flex-1 p-4 sm:p-10 pb-36 lg:pb-10">
                 <?= $this->renderSection('content'); ?>
             </main>
 
-            <!-- pb-28 di HP supaya tidak tertutup bottom nav -->
+            <!-- Footer -->
             <footer class="px-4 sm:px-10 pt-4 pb-28 lg:pb-4 text-xs text-slate-400 text-center border-t border-slate-200 bg-white">
                 &copy; <?= date('Y'); ?> Albu Project. All rights reserved.
             </footer>

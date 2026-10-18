@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\UserModel; // 1. Import UserModel
+use App\Models\UserModel;
 
 class Pages extends BaseController
 {
@@ -10,19 +10,17 @@ class Pages extends BaseController
     {
         $userModel = new UserModel();
 
-        // 2. Ambil semua data user dari database
         $data = [
             'title' => 'Dashboard | Albu Project',
             'users' => $userModel->orderBy('created_at', 'DESC')->findAll()
         ];
 
-        // 3. Kirim $data ke view Pages/home
         return view('Pages/home', $data);
     }
 
     public function home()
     {
-        return $this->index(); // Samakan dengan index
+        return $this->index();
     }
 
     public function about()
@@ -35,24 +33,25 @@ class Pages extends BaseController
 
     public function contact()
     {
+
         $data = [
             'title' => 'Contact | Portfolio Saya',
             'alamat' => [
                 [
-                    'tipe'      => 'Kantor / Studio',
-                    'jalan'     => 'Jl. Asia Afrika No. 45',
-                    'kota'      => 'Bandung',
-                    'provinsi'  => 'Jawa Barat',
-                    'kode_pos'  => '40111',
-                    'telepon'   => '022-1234567'
+                    'tipe'      => 'Universitas La Tansa Mashiro',
+                    'jalan'     => 'Jl. Soekarno-Hatta (By Pass) Rangkasbitung',
+                    'kota'      => 'Lebak',
+                    'provinsi'  => 'Banten',
+                    'kode_pos'  => '42312',
+                    'telepon'   => '(0252) 201124'
                 ],
                 [
                     'tipe'      => 'Rumah',
-                    'jalan'     => 'Jl. Soekarno Hatta No. 88',
-                    'kota'      => 'Bandung',
-                    'provinsi'  => 'Jawa Barat',
-                    'kode_pos'  => '40286',
-                    'telepon'   => '0812-3456-7890'
+                    'jalan'     => 'Jl. Raya Leuwidamar KM. 19, Kp. Talagasari',
+                    'kota'      => 'Wantisari, Leuwidamar, Lebak',
+                    'provinsi'  => 'Banten',
+                    'kode_pos'  => '42362',
+                    'telepon'   => '0857-1533-0893'
                 ]
             ]
         ];
@@ -61,12 +60,6 @@ class Pages extends BaseController
 
     public function kirimPesan()
     {
-        $nama  = $this->request->getPost('nama');
-        $email = $this->request->getPost('email');
-        $pesan = $this->request->getPost('pesan');
-
-        session()->setFlashdata('pesan', 'Pesan Anda berhasil terkirim!');
-
         return redirect()->to('/pages/contact');
     }
 }

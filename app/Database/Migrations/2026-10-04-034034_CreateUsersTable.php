@@ -37,10 +37,20 @@ class CreateUsersTable extends Migration
                 'constraint' => '20',
                 'default'    => 'user',
             ],
+            'phone' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '20',
+                'null'       => true,
+            ],
             'is_active' => [
                 'type'       => 'TINYINT',
                 'constraint' => 1,
                 'default'    => 1,
+            ],
+            'photo' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+                'null'       => true,
             ],
             'created_at' => [
                 'type' => 'DATETIME',

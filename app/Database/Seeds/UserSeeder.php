@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             [
                 'username'  => 'admin',
                 'email'     => 'admin@unilam.ac.id',
+                'phone'      => '081234567890',
                 'password'  => password_hash('password', PASSWORD_BCRYPT),
                 'role'      => 'admin',
                 'is_active' => 1,
@@ -27,6 +28,7 @@ class UserSeeder extends Seeder
             [
                 'username'  => 'albu',
                 'email'     => 'albu@unilam.ac.id',
+                'phone'     => '081234567891',
                 'password'  => password_hash('password', PASSWORD_BCRYPT),
                 'role'      => 'admin',
                 'is_active' => 1,
@@ -36,15 +38,17 @@ class UserSeeder extends Seeder
             [
                 'username'  => 'rifki',
                 'email'     => 'rifki@unilam.ac.id',
+                'phone'     => '081234567892',
                 'password'  => password_hash('password', PASSWORD_BCRYPT),
                 'role'      => 'user',
-                'is_active' => 1,
+                'is_active' => 0,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'username'  => 'slaman',
-                'email'     => 'slaman@unilam.ac.id',
+                'username'  => 'salman',
+                'email'     => 'salman@unilam.ac.id',
+                'phone'     => '081234567893',
                 'password'  => password_hash('password', PASSWORD_BCRYPT),
                 'role'      => 'user',
                 'is_active' => 1,
